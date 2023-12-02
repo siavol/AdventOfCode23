@@ -25,13 +25,21 @@ data SetOfCubes = SetOfCubes { red :: Int
                              , blue :: Int
                              } deriving (Show, Eq)
 
+data Color = Red | Green | Blue deriving(Show, Read, Eq, Enum)
+
+readColor :: String -> Color
+readColor str = case str of
+  "red" -> Red
+  "green" -> Green
+  "blue" -> Blue
+  _ -> error "Unknown color"
+
 -- set color to value
-setCube :: SetOfCubes -> Int -> String -> SetOfCubes
+setCube :: SetOfCubes -> Int -> Color -> SetOfCubes
 setCube set value color = case color of
-  "red" -> set { red = value }
-  "green" -> set { green = value }
-  "blue" -> set { blue = value }
-  otherwise -> set
+  Red -> set { red = value }
+  Green -> set { green = value }
+  Blue -> set { blue = value }
 
 -- returns pairs from array like [1, 2, 3, 4] -> [(1, 2), (3, 4)]
 getPairs :: [a] -> [(a, a)]
@@ -39,10 +47,10 @@ getPairs [] = []
 getPairs [x] = error "Cannot create pair with a single element"
 getPairs (x:y:xs) = (x, y) : getPairs xs
 
-parsePairs :: [(String, String)] -> [(Int, String)]
-parsePairs = map (\(a, b) -> (read a, b))
+parsePairs :: [(String, String)] -> [(Int, Color)]
+parsePairs = map (\(a, b) -> (read a, readColor b))
 
-readPairs :: String -> [(Int, String)]
+readPairs :: String -> [(Int, Color)]
 readPairs str = parsePairs pairs
   where
     w = words $ map (\c -> if c == ',' then ' ' else c) str

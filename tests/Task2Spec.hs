@@ -18,21 +18,19 @@ spec = do
 
   describe "parsePairs" $ do
     it "returns pairs from array of pairs" $ do
-      parsePairs [("1", "red"), ("2", "green")] `shouldBe` [(1, "red"), (2, "green")]
+      parsePairs [("1", "red"), ("2", "green")] `shouldBe` [(1, Red), (2, Green)]
 
   describe "readPairs" $ do
     it "returns pairs from string" $ do
-      readPairs "1 red, 2 green" `shouldBe` [(1, "red"), (2, "green")]
+      readPairs "1 red, 2 green" `shouldBe` [(1, Red), (2, Green)]
 
   describe "setCube" $ do
     it "sets red cube" $ do
-      setCube (SetOfCubes 1 2 3) 2 "red" `shouldBe` SetOfCubes 2 2 3
+      setCube (SetOfCubes 1 2 3) 2 Red `shouldBe` SetOfCubes 2 2 3
     it "sets green cube" $ do
-      setCube (SetOfCubes 1 2 3) 1 "green" `shouldBe` SetOfCubes 1 1 3
+      setCube (SetOfCubes 1 2 3) 1 Green `shouldBe` SetOfCubes 1 1 3
     it "sets blue cube" $ do
-      setCube (SetOfCubes 1 2 3) 1 "blue" `shouldBe` SetOfCubes 1 2 1
-    it "does not set unknown cube" $ do
-      setCube (SetOfCubes 1 2 3) 1 "unknown" `shouldBe` SetOfCubes 1 2 3
+      setCube (SetOfCubes 1 2 3) 1 Blue `shouldBe` SetOfCubes 1 2 1
 
   describe "readSetOfCubes" $ do
     it "returns set of cubes" $ do
