@@ -11,7 +11,7 @@ This project uses `cabal`, a build tool for Haskell. You can install it by follo
 To run tests, use the following command:
 
 ```shell
-cabal test
+cabal test --test-show-details=direct
 ```
 
 To run a task (replace `1` with the task number), use the following command:

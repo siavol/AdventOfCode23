@@ -34,7 +34,7 @@ testCalibrationSum = TestCase
 testGetDigitsWithLetters :: Test
 testGetDigitsWithLetters = TestCase
     $ assertEqual "for (digitIndexes 'zoneight234')"
-    [1, 2, 3, 4] (getDigitsWithLetters "zoneight234")
+    [1, 8, 2, 3, 4] (getDigitsWithLetters "zoneight234")
 
 testGetDigitsWithLetters2 :: Test
 testGetDigitsWithLetters2 = TestCase
