@@ -34,7 +34,7 @@ executable AdventOfCode23
     -- LANGUAGE extensions used by modules in this package.
     -- other-extensions:
     build-depends:    base ^>=4.16.4.0
-                    , HUnit >= 1.6 && < 1.7
+                    , text ^>=1.2.5.0
     hs-source-dirs:   app, src
     default-language: Haskell2010
 
@@ -44,6 +44,7 @@ test-suite AdventOfCode23-test
     other-modules:       Task1
     build-depends:       base ^>=4.16.4.0
                        , HUnit >= 1.6 && < 1.7
+                       , text ^>=1.2.5.0
     hs-source-dirs:      tests, src
     default-language:    Haskell2010
 
