@@ -3,6 +3,7 @@ module Main where
 import System.Environment
 import qualified Task1
 import qualified Task2
+import qualified Task3
 
 main :: IO ()
 
@@ -12,4 +13,5 @@ main = do
     [] -> print "Please provide task number using 'task <number>' arguments"
     ["task", "1"] -> Task1.runTask
     ["task", "2"] -> Task2.runTask
+    ["task", "3"] -> Task3.runTask
     otherwise -> print "Invalid task number"

@@ -31,6 +31,7 @@ executable AdventOfCode23
     -- Modules included in this executable, other than Main.
     other-modules:    Task1
                     , Task2
+                    , Task3
 
     -- LANGUAGE extensions used by modules in this package.
     -- other-extensions:
@@ -44,7 +45,9 @@ test-suite AdventOfCode23-test
     main-is:             Spec.hs
     other-modules:       Task1
                        , Task2
+                       , Task3
                        , Task2Spec
+                       , Task3Spec
     build-depends:       base ^>=4.16.4.0
                        , HUnit >= 1.6 && < 1.7
                        , hspec ==2.*
