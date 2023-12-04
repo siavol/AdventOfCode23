@@ -29,9 +29,11 @@ executable AdventOfCode23
     main-is:          Main.hs
 
     -- Modules included in this executable, other than Main.
-    other-modules:    Task1
+    other-modules:    Commons
+                    , Task1
                     , Task2
                     , Task3
+                    , Task4
 
     -- LANGUAGE extensions used by modules in this package.
     -- other-extensions:
@@ -43,11 +45,15 @@ executable AdventOfCode23
 test-suite AdventOfCode23-test
     type:                exitcode-stdio-1.0
     main-is:             Spec.hs
-    other-modules:       Task1
+    other-modules:       Commons
+                       , CommonsSpec
+                       , Task1
                        , Task2
                        , Task3
+                       , Task4
                        , Task2Spec
                        , Task3Spec
+                       , Task4Spec
     build-depends:       base ^>=4.16.4.0
                        , HUnit >= 1.6 && < 1.7
                        , hspec ==2.*
