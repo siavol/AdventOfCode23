@@ -13,6 +13,9 @@ spec = do
       let (number, record) = readTitledRecord "Card 23: 41 48 83 86 17 | 83 86  6 31 17  9 48 53"
       number `shouldBe` 23
       record `shouldBe` "41 48 83 86 17 | 83 86  6 31 17  9 48 53"
+    it "returns a record when there is no number" $ do
+      let (_, record) = readTitledRecord "seeds: 79 14 55"
+      record `shouldBe` "79 14 55"
 
   describe "splitBy" $ do
     it "splits string by comma char" $ do
