@@ -15,7 +15,6 @@ import Task7 ( Card(..)
              , replaceJokers
              , compareCardsWithJoker
              , totalWinningsWithJoker)
-import GHC.RTS.Flags (ProfFlags(descrSelector))
 import Data.List (sortBy)
 
 spec :: Spec
