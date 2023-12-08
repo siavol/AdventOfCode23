@@ -37,6 +37,7 @@ executable AdventOfCode23
                     , Task5
                     , Task6
                     , Task7
+                    , Task8
 
     -- LANGUAGE extensions used by modules in this package.
     -- other-extensions:
@@ -58,12 +59,14 @@ test-suite AdventOfCode23-test
                        , Task5
                        , Task6
                        , Task7
+                       , Task8
                        , Task2Spec
                        , Task3Spec
                        , Task4Spec
                        , Task5Spec
                        , Task6Spec
                        , Task7Spec
+                       , Task8Spec
     build-depends:       base ^>=4.17.2.0
                        , containers
                        , HUnit >= 1.6 && < 1.7

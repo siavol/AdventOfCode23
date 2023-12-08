@@ -24,3 +24,24 @@ spec = do
     it "splits string by | char" $ do
       let splitted = splitBy '|' "1, 2, 3, 4 | 5, 6, 7, 8"
       splitted `shouldBe` ["1, 2, 3, 4 ", " 5, 6, 7, 8"]
+
+  describe "trimStart" $ do
+    it "trims spaces from the start of the string" $ do
+      let trimmed = trimStart "   1, 2, 3, 4"
+      trimmed `shouldBe` "1, 2, 3, 4"
+    it "does not trim spaces from the middle of the string" $ do
+      let trimmed = trimStart "1, 2, 3, 4"
+      trimmed `shouldBe` "1, 2, 3, 4"
+    it "does not trim spaces from the end of the string" $ do
+      let trimmed = trimStart "1, 2, 3, 4   "
+      trimmed `shouldBe` "1, 2, 3, 4   "
+
+  describe "trimStartBy" $ do
+    it "trims ( from the start of the string" $ do
+      let trimmed = trimStartBy '(' "(BBB"
+      trimmed `shouldBe` "BBB"
+
+  describe "trimEndBy" $ do
+    it "trims ) from the end of the string" $ do
+      let trimmed = trimEndBy ')' "BBB)"
+      trimmed `shouldBe` "BBB"

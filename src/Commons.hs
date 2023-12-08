@@ -7,7 +7,16 @@ readInput filename = do
   return (lines contents)
 
 trimStart :: String -> String
-trimStart = dropWhile (== ' ')
+trimStart = trimStartBy ' '
+
+trimStartBy :: Char -> String -> String
+trimStartBy c = dropWhile (== c)
+
+trimEndBy :: Char -> String -> String
+trimEndBy c = reverse . trimStartBy c . reverse
+
+trimEnd :: String -> String
+trimEnd = trimEndBy ' '
 
 isDigit :: Char -> Bool
 isDigit c = c `elem` ['0'..'9']
