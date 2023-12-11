@@ -4,7 +4,6 @@
 module Task9 where
 
 import Commons (readInput)
-import Task3 (Coord(xEnd))
 
 runTask :: IO ()
 runTask = do
