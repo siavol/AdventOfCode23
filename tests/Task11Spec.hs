@@ -5,7 +5,6 @@ import Test.QuickCheck
 import Control.Exception (evaluate)
 
 import Task11
-import GHC.RTS.Flags (ProfFlags(descrSelector))
 
 spec :: Spec
 spec = do

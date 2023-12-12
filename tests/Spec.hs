@@ -13,6 +13,7 @@ import qualified Task8Spec
 import qualified Task9Spec
 import qualified Task10Spec
 import qualified Task11Spec
+import qualified Task12Spec
 import Test.Hspec (describe)
 
 main :: IO ()
@@ -31,3 +32,4 @@ spec = do
   describe "Task 9"     Task9Spec.spec
   describe "Task 10"    Task10Spec.spec
   describe "Task 11"    Task11Spec.spec
+  describe "Task 12"    Task12Spec.spec
