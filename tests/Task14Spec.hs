@@ -130,9 +130,10 @@ spec = do
                                  , "......OOOO"
                                  , "#...O###.."
                                  , "#..OO#...."]
+      levelTotalLoad (tiltCycle input) `shouldBe` 87
 
   describe "tiltNCycles" $ do
-    it "should roll rocks 2 cycles" $ do
+    it "should roll rocks 2 cycles, load 69" $ do
       let input = [ "O....#...."
                   , "O.OO#....#"
                   , ".....##..."
@@ -153,8 +154,9 @@ spec = do
                                      , ".......OOO"
                                      , "#..OO###.."
                                      , "#.OOO#...O"]
+      levelTotalLoad (tiltNCycles 2 input) `shouldBe` 69
 
-    it "should roll rocks 3 cycles" $ do
+    it "should roll rocks 3 cycles, load 69" $ do
       let input = [ "O....#...."
                   , "O.OO#....#"
                   , ".....##..."
@@ -175,8 +177,55 @@ spec = do
                                      , ".......OOO"
                                      , "#...O###.O"
                                      , "#.OOO#...O"]
+      levelTotalLoad (tiltNCycles 3 input) `shouldBe` 69
 
-  describe "levelTotalLoad" $ do
+    it "should roll rocks 4 cycles, load 69" $ do
+      let input = [ "O....#...."
+                  , "O.OO#....#"
+                  , ".....##..."
+                  , "OO.#O....O"
+                  , ".O.....O#."
+                  , "O.#..O.#.#"
+                  , "..O..#O..O"
+                  , ".......O.."
+                  , "#....###.."
+                  , "#OO..#...."]
+      tiltNCycles 4 input `shouldBe` [ ".....#...."
+                                     , "....#...O#"
+                                     , ".....##..."
+                                     , "..O#......"
+                                     , ".....OOO#."
+                                     , ".O#...O#.#"
+                                     , "....O#...O"
+                                     , ".......OOO"
+                                     , "#...O###.O"
+                                     , "#..OO#..OO"]
+      levelTotalLoad (tiltNCycles 4 input) `shouldBe` 69
+
+    it "should roll rocks 5 cycles, load 65" $ do
+      let input = [ "O....#...."
+                  , "O.OO#....#"
+                  , ".....##..."
+                  , "OO.#O....O"
+                  , ".O.....O#."
+                  , "O.#..O.#.#"
+                  , "..O..#O..O"
+                  , ".......O.."
+                  , "#....###.."
+                  , "#OO..#...."]
+      tiltNCycles 5 input `shouldBe` [ ".....#...."
+                                     , "....#...O#"
+                                     , ".....##..."
+                                     , "...#......"
+                                     , ".....OOO#."
+                                     , ".O#...O#.#"
+                                     , "....O#...O"
+                                     , "......OOOO"
+                                     , "#...O###.O"
+                                     , "#..OO#..OO"]
+      levelTotalLoad (tiltNCycles 5 input) `shouldBe` 65
+
+  describe "levelTotalLoadAfterTiltNorh" $ do
     it "should calculate total load on test level" $ do
       let input = [ "O....#...."
                   , "O.OO#....#"
@@ -188,18 +237,41 @@ spec = do
                   , ".......O.."
                   , "#....###.."
                   , "#OO..#...."]
-      levelTotalLoad input `shouldBe` 136
+      levelTotalLoadAfterTiltNorh input `shouldBe` 136
 
   describe "levelTotalLoadAfterNCycles" $ do
-    xit "should calculate total load on test level after 1000000000 cycles" $ do
-      let input = [ "O....#...."
-                  , "O.OO#....#"
-                  , ".....##..."
-                  , "OO.#O....O"
-                  , ".O.....O#."
-                  , "O.#..O.#.#"
-                  , "..O..#O..O"
-                  , ".......O.."
-                  , "#....###.."
-                  , "#OO..#...."]
+    let input = [ "O....#...."
+                , "O.OO#....#"
+                , ".....##..."
+                , "OO.#O....O"
+                , ".O.....O#."
+                , "O.#..O.#.#"
+                , "..O..#O..O"
+                , ".......O.."
+                , "#....###.."
+                , "#OO..#...."]
+    it "total load on test level after 1 cycles is 87" $ do
+      levelTotalLoadAfterNCycles 1 input `shouldBe` 87
+    it "total load on test level after 2 cycles is 69" $ do
+      levelTotalLoadAfterNCycles 2 input `shouldBe` 69
+    it "total load on test level after 3 cycles is 69" $ do
+      levelTotalLoadAfterNCycles 3 input `shouldBe` 69
+    it "total load on test level after 4 cycles is 69" $ do
+      levelTotalLoadAfterNCycles 4 input `shouldBe` 69
+    it "total load on test level after 5 cycles is 69" $ do
+      levelTotalLoadAfterNCycles 5 input `shouldBe` 65
+    it "total load on test level after 6 cycles is 64" $ do
+      levelTotalLoadAfterNCycles 6 input `shouldBe` 64
+    it "total load on test level after 7 cycles is 65" $ do
+      levelTotalLoadAfterNCycles 7 input `shouldBe` 65
+    it "total load on test level after 8 cycles is 63" $ do
+      levelTotalLoadAfterNCycles 8 input `shouldBe` 63
+    it "total load on test level after 9 cycles is 68" $ do
+      levelTotalLoadAfterNCycles 9 input `shouldBe` 68
+    it "total load on test level after 10 cycles is 69" $ do
+      levelTotalLoadAfterNCycles 10 input `shouldBe` 69
+    it "total load on test level after 11 cycles is 69" $ do
+      levelTotalLoadAfterNCycles 11 input `shouldBe` 69
+
+    it "should calculate total load on test level after 1000000000 cycles" $ do
       levelTotalLoadAfterNCycles 1000000000 input `shouldBe` 64
