@@ -5,7 +5,6 @@ import Test.QuickCheck
 import Control.Exception (evaluate)
 
 import Task14
-import Task14 (rollRoundRocksRight)
 
 spec :: Spec
 spec = do

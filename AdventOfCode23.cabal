@@ -44,6 +44,7 @@ executable AdventOfCode23
                     , Task12
                     , Task13
                     , Task14
+                    , Task15
 
     -- LANGUAGE extensions used by modules in this package.
     -- other-extensions:
@@ -51,6 +52,7 @@ executable AdventOfCode23
                     , text ^>=2.0.2
                     , containers
                     , split
+                    , array
     hs-source-dirs:   app, src
     default-language: Haskell2010
 
@@ -73,6 +75,7 @@ test-suite AdventOfCode23-test
                        , Task12
                        , Task13
                        , Task14
+                       , Task15
                        , Task2Spec
                        , Task3Spec
                        , Task4Spec
@@ -86,6 +89,7 @@ test-suite AdventOfCode23-test
                        , Task12Spec
                        , Task13Spec
                        , Task14Spec
+                       , Task15Spec
     build-depends:       base ^>=4.17.2.0
                        , containers
                        , HUnit >= 1.6 && < 1.7
@@ -93,6 +97,7 @@ test-suite AdventOfCode23-test
                        , QuickCheck ==2.*
                        , text ^>=2.0.2
                        , split
+                       , array
     hs-source-dirs:      tests, src
     default-language:    Haskell2010
 

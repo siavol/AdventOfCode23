@@ -15,6 +15,7 @@ import qualified Task11
 import qualified Task12
 import qualified Task13
 import qualified Task14
+import qualified Task15
 
 main :: IO ()
 
@@ -36,4 +37,5 @@ main = do
     ["task", "12"] -> Task12.runTask
     ["task", "13"] -> Task13.runTask
     ["task", "14"] -> Task14.runTask
+    ["task", "15"] -> Task15.runTask
     otherwise -> print "Invalid task number"
