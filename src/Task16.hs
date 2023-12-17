@@ -12,8 +12,9 @@ runTask :: IO ()
 runTask = do
   print "=== Advent of Code 16 ==="
   input <- readInput "./inputs/task-16.txt"
-  print $ calcEnergizedFields (readField input) (Coord 0 0) Right
-  print $ mostEnergized (readField input)
+  let fieldMap = readField input
+  print $ calcEnergizedFields fieldMap (Coord 0 0) Right
+  print $ mostEnergized fieldMap
 
 
 data Direction = Left | Right | Up | Down
@@ -87,14 +88,14 @@ calcEnergizedFields fieldMap coord direction = length energizedCoords
 startingPositions :: Int -> Int -> [(Coord, Direction)]
 startingPositions width height = concat [left, right, top, bottom, leftTop, rightTop, leftBottom, rightBottom]
   where
-    left = map (\y -> (Coord 0 y, Right)) [0..height-1]
-    right = map (\y -> (Coord (width - 1) y, Left)) [0..height-1]
-    top = map (\x -> (Coord x 0, Down)) [0..width-1]
-    bottom = map (\x -> (Coord x (height - 1), Up)) [0..width-1]
+    left = map (\y -> (Coord 0 y, Right)) [0..height]
+    right = map (\y -> (Coord width y, Left)) [0..height]
+    top = map (\x -> (Coord x 0, Down)) [0..width]
+    bottom = map (\x -> (Coord x height, Up)) [0..width]
     leftTop = [(Coord 0 0, Right), (Coord 0 0, Down)]
-    rightTop = [(Coord (width - 1) 0, Left), (Coord (width - 1) 0, Down)]
-    leftBottom = [(Coord 0 (height - 1), Right), (Coord 0 (height - 1), Up)]
-    rightBottom = [(Coord (width - 1) (height - 1), Left), (Coord (width - 1) (height - 1), Up)]
+    rightTop = [(Coord width 0, Left), (Coord width 0, Down)]
+    leftBottom = [(Coord 0 height, Right), (Coord 0 height, Up)]
+    rightBottom = [(Coord width height, Left), (Coord width height, Up)]
 
 mostEnergized :: Map.Map Coord Char -> Int
 mostEnergized fieldMap = maximum $ map (uncurry (calcEnergizedFields fieldMap)) (startingPositions width height)
